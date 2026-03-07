@@ -11,3 +11,8 @@ cd cipherconverter
 git clone https://github.com/basarardabaykal/cipherconverter-docker.git
 cd cipherconverter-docker
 ```
+
+3 - Run the setup script
+```bash
+bash setup_and_run.sh
+```
