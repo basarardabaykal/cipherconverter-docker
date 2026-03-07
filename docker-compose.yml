@@ -1,0 +1,52 @@
+  
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: cipherconverter_db
+    restart: unless-stopped
+    env_file:
+      - db.env
+    ports:
+      - "5449:5432"
+    networks:
+      - cipherconverter-network
+    volumes:
+      - ../pg_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ../cipherconverter-backend
+      dockerfile: Dockerfile
+    image: cipherconverter-backend
+    working_dir: /backend
+    container_name: cipherconverter_backend
+    restart: unless-stopped
+    env_file:
+      - backend.env
+    ports:
+      - "8805:8000"
+    volumes:
+      - ../cipherconverter-backend/cipherconverter:/backend
+      - ../cipherconverter_backend_outbox:/io/cipherconverter_backend_outbox
+    networks:
+      - cipherconverter-network
+    depends_on:
+      - db
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+
+  frontend:
+    image: node:23-bookworm
+    working_dir: /app
+    container_name: cipherconverter_frontend
+    restart: unless-stopped
+    ports:
+      - "2106:2106"
+    volumes:
+      - ../cipherconverter-frontend/app:/app
+    networks:
+      - cipherconverter-network
+    command: |
+      sh -c "npm ci && npm start"
+
+networks:
+  cipherconverter-network:
+    driver: bridge
