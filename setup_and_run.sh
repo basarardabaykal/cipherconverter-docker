@@ -1,8 +1,8 @@
 docker ps -a -q --filter "name=cipherconverter" | xargs docker rm -f
 
-git clone -b main https://github.com/basarardabaykal/cipherconverter-backend.git ../cipherconverter-backend
-git clone -b main https://github.com/basarardabaykal/cipherconverter-microservice.git ../cipherconverter-microservice
-git clone -b main https://github.com/basarardabaykal/cipherconverter-frontend.git ../cipherconverter-frontend
+git clone https://github.com/basarardabaykal/cipherconverter-backend.git ../cipherconverter-backend
+git clone https://github.com/basarardabaykal/cipherconverter-microservice.git ../cipherconverter-microservice
+git clone https://github.com/basarardabaykal/cipherconverter-frontend.git ../cipherconverter-frontend
 
 (
   cd ../cipherconverter-frontend || exit
