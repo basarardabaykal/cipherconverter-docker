@@ -36,5 +36,5 @@ DATABASE_PORT=5432
 bash setup_and_run.sh
 ```
 
-Frontend: `http://localhost:2106`.
-Backend: `http://localhost:8805`.
+- Frontend: `http://localhost:2106`
+- Backend: `http://localhost:8805`
