@@ -45,7 +45,7 @@ services:
     networks:
       - cipherconverter-network
     command: |
-      sh -c "npm ci && npm start"
+      sh -c "npm ci && npm run dev"
 
 networks:
   cipherconverter-network:
