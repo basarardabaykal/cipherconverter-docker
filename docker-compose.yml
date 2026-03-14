@@ -7,7 +7,7 @@ services:
     env_file:
       - db.env
     ports:
-      - "5449:5432"
+      - "5428:5432"
     networks:
       - cipherconverter-network
     volumes:
