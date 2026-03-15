@@ -26,7 +26,6 @@ services:
       - "8805:8000"
     volumes:
       - ../cipherconverter-backend/cipherconverter:/backend
-      - ../cipherconverter_backend_outbox:/io/cipherconverter_backend_outbox
     networks:
       - cipherconverter-network
     depends_on:
