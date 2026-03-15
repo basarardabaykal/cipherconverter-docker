@@ -29,6 +29,7 @@ DATABASE_USER=postgres
 DATABASE_PASSWORD=12345
 DATABASE_HOST=db
 DATABASE_PORT=5432
+SECRET_KEY=<put_256_bit_jwt_secret_key_here>
 ```
 
 4 - Run the setup script
