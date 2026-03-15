@@ -19,8 +19,6 @@ docker compose up -d --build
 
 sleep 15
 
-docker exec cipherconverter_backend python manage.py migrate
-
-docker exec cipherconverter_backend python manage.py shell -c 'from django.conf import settings; apps =[app.split(".")[-1] for app in settings.INSTALLED_APPS]; print(" ".join(apps))' | grep -v "^$" | grep -v "^###" | grep -v 'for details.' | xargs docker exec cipherconverter_backend python manage.py makemigrations --noinput
-docker exec cipherconverter_backend ./manage.py migrate
+docker exec cipherconverter_backend python manage.py makemigrations --noinput
+docker exec cipherconverter_backend python manage.py migrate --noinput
 
