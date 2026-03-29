@@ -12,7 +12,7 @@ git clone https://github.com/basarardabaykal/cipherconverter-docker.git
 cd cipherconverter-docker
 ```
 
-3 - Create db.env and backend.env in cipherconverter-docker
+3 - Create db.env, backend.env and frontend.env in cipherconverter-docker
 
 Example `db.env`:
 ```bash
@@ -30,6 +30,11 @@ DATABASE_PASSWORD=12345
 DATABASE_HOST=db
 DATABASE_PORT=5432
 SECRET_KEY=<put_256_bit_jwt_secret_key_here>
+```
+
+Example `frontend.env`:
+```bash
+VITE_API_BASE_URL=http://localhost:8805/api/
 ```
 
 4 - Run the setup script
