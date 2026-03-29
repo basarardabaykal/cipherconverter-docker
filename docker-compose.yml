@@ -37,6 +37,8 @@ services:
     working_dir: /app
     container_name: cipherconverter_frontend
     restart: unless-stopped
+    env_file:
+      - frontend.env
     ports:
       - "2106:2106"
     volumes:
