@@ -32,6 +32,19 @@ services:
       - db
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
 
+  microservice:
+    image: golang:1.24-bookworm
+    working_dir: /microservice
+    container_name: cipherconverter_microservice
+    restart: unless-stopped
+    ports:
+      - "50051:50051"
+    volumes:
+      - ../cipherconverter-microservice:/microservice
+    networks:
+      - cipherconverter-network
+    command: sh -c "go run ./cmd/api"
+
   frontend:
     image: node:23-bookworm
     working_dir: /app
